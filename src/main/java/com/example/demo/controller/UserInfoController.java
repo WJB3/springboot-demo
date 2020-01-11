@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
+@RequestMapping("userInfo")
 public class UserInfoController {
     @Resource
     private UserInfoService userInfoService;
 
     @RequestMapping("/hello2")
-    public String hello2(){
+    public String hell(){
         return "hello Springboot";
     }
 

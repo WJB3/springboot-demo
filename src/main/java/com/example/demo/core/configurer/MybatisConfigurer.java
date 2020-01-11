@@ -10,6 +10,13 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 
 import javax.sql.DataSource;
 
+/**
+ * @ClassName: MybatisConfigurer
+ * @Description: Mybatis配置
+ * @author 张瑶
+ * @date 2018年1月20日 下午4:03:46
+ *
+ */
 @Configuration
 public class MybatisConfigurer {
 
@@ -31,6 +38,5 @@ public class MybatisConfigurer {
         mapperScannerConfigurer.setBasePackage("com.example.demo.dao");
         return mapperScannerConfigurer;
     }
-
-
 }
+
