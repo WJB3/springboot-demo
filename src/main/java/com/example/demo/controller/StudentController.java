@@ -16,8 +16,14 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping("/add")
-    public Integer add(Student student){
-        return studentService.add(student);
+    public String add(Student student){
+        int returnNumber=studentService.add(student);
+        if(returnNumber==1){
+            return "添加成功";
+        }else{
+            return "添加失败";
+        }
+
     }
 
     @PutMapping("/edit")
@@ -30,6 +36,17 @@ public class StudentController {
         }else{
             return "更新失败";
         }
+    }
+
+    @DeleteMapping("/delete")
+    public String delete(Integer id){
+        int returnNumber=studentService.delete(id);
+        if(returnNumber==1){
+            return "删除成功";
+        }else{
+            return "删除失败";
+        }
+
     }
 
     @RequestMapping("/getList")

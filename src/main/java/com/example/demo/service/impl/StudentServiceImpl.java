@@ -28,6 +28,10 @@ public class StudentServiceImpl implements StudentService {
         return studentMapper.edit(student);
     }
 
+    public Integer delete(Integer id){
+        return studentMapper.delete(id);
+    }
+
     public ArrayList getList(Integer id){
         return studentMapper.getList(id);
     }

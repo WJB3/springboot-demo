@@ -24,6 +24,9 @@
         where id=#{id}
     </update>
 
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from students where id=#{id}
+    </delete>
     <select id="getList"  parameterType="java.lang.Integer"  resultMap="BaseAllResultMap" >
         select * from students
         <if test="id==null">
