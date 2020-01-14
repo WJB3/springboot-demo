@@ -5,6 +5,7 @@
     <resultMap id="BaseAllResultMap" type="java.util.Map">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="no" jdbcType="VARCHAR" property="no"/>
+        <result column="name" jdbcType="VARCHAR" property="name"></result>
     </resultMap>
 
     <insert id="add" parameterType="com.example.demo.model.Student" keyProperty="id" useGeneratedKeys="true">
@@ -40,7 +41,7 @@
 
 
     <sql id="Base_Column_List">
-      id,no
+      id,no,name
     </sql>
 
 

@@ -1,11 +1,14 @@
 package com.example.demo.controller;
 
+import com.example.demo.core.ret.ResResponse;
+import com.example.demo.core.ret.ResResult;
 import com.example.demo.model.Student;
 import com.example.demo.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -15,7 +18,7 @@ public class StudentController {
     @Resource
     private StudentService studentService;
 
-    @PostMapping("/add")
+    @PostMapping
     public String add(Student student){
         int returnNumber=studentService.add(student);
         if(returnNumber==1){
@@ -26,7 +29,7 @@ public class StudentController {
 
     }
 
-    @PutMapping("/edit")
+    @PutMapping
     public String edit(Student student){
         int returnNumber=studentService.edit(student);
         if(returnNumber==1){
@@ -38,7 +41,7 @@ public class StudentController {
         }
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping
     public String delete(Integer id){
         int returnNumber=studentService.delete(id);
         if(returnNumber==1){
@@ -49,8 +52,9 @@ public class StudentController {
 
     }
 
-    @RequestMapping("/getList")
-    public ArrayList getList(Integer id){
-        return studentService.getList(id);
+    @RequestMapping
+    public ResResult<List> getList(Integer id){
+        List arrayList=studentService.getList(id);
+        return ResResponse.makeOKRsp(arrayList);
     }
 }
